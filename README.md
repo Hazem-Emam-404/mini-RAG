@@ -8,13 +8,14 @@ python >= 3.12
 
 ## Install Python using miniconda
 
-1) Download and install [Miniconda](https://www.anaconda.com/docs/getting-started/miniconda/install/) for your operating system.
-2) Create a new conda environment and activate it:
+1. Download and install [Miniconda](https://www.anaconda.com/docs/getting-started/miniconda/install/) for your operating system.
+2. Create a new conda environment and activate it:
 
 ```bash
 conda create -n mini-rag python=3.12
 ```
-3) Activate the environment:
+
+3. Activate the environment:
 
 ```bash
 conda activate mini-rag
@@ -31,4 +32,11 @@ pip install -r requirements.txt
 ```bash
 cp .env.example .env
 ```
+
 set the values in the `.env` file according to your configuration.
+
+## Run the Application
+
+```bash
+uvicorn main:app --reload --port 8000
+```
