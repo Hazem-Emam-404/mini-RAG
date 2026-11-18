@@ -2,3 +2,7 @@ fastapi==0.162.0
 uvicorn[standard]==0.54.0
 python-multipart==0.0.32
 python-dotenv==1.2.4
+pydantic==2.14.3
+pydantic-settings==2.16.3
+annotated-types==0.8.0
+aiofiles==25.1.0

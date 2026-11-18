@@ -1,4 +1,6 @@
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI, APIRouter,Depends
+from helpers.config import get_settings,Settings
+from typing import Annotated
 import os
 base_router = APIRouter(
     prefix="/api/v1",
@@ -8,9 +10,9 @@ base_router = APIRouter(
 
 
 @base_router.get("/")
-def read_root():
-    app_name = os.getenv("APP_NAME")
-    app_version = os.getenv("APP_VERSION")
+async def read_root(app_settings: Annotated[Settings, Depends(get_settings)]):
+    app_name = app_settings.APP_NAME
+    app_version = app_settings.APP_VERSION
     return {
         "message": f"Welcome to the {app_name} application!",
         "version": app_version
